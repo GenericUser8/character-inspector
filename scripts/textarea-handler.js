@@ -2,6 +2,9 @@
 const inputSummaryContainer = document.getElementById("input-summary-container");
 inputSummaryContainer.setAttribute("hidden","");
 
+// Word Summary Card
+const wordSummaryCard = document.getElementById("word-summary-card");
+
 // Text area object
 const textAreaObject = document.getElementById("input-text-area");
 let textInput = "";
@@ -87,6 +90,8 @@ textAreaObject.addEventListener('input', async function() {
     textLength = textInput.length
     if (textLength > 0) {
         inputSummaryContainer.removeAttribute("hidden");
+
+        // Character Specific
         countCharacters();
         countAlpha();
         countUpper();
@@ -95,8 +100,18 @@ textAreaObject.addEventListener('input', async function() {
         countAsciiSymbols();
         countSpaces();
         countOther();
+
+        // Wordcount Component
+        countWords();
     } else {
         inputSummaryContainer.setAttribute("hidden","");
+    }
+
+    // Hides word summary card if not relevant
+    if (wordCount > 1 || sentenceCount > 0) {
+        wordSummaryCard.removeAttribute("hidden");
+    } else {
+        wordSummaryCard.setAttribute("hidden","");
     }
 });
 
@@ -265,7 +280,7 @@ function countOther() {
             isPunctuation(c) ||
             isOperator(c) ||
             isOtherAsciiSymbol(c) ||
-            (c == '\n')
+            (c == '\n') || (c == ' ')
         )) {
             otherCharactersCount++;
         }

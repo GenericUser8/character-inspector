@@ -17,3 +17,7 @@ const otherAsciiSymbols = [
     '#', '&', '@', '\\', '^', '_', '`', '~', '|', '$',
     '<', '>'
 ];
+
+const sentenceEnds = [
+    '.', '!', '?'
+];
