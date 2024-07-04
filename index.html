@@ -1,0 +1,152 @@
+<html lang="en">
+    <head>
+        <!-- Adaptation to different window sizes -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.25">
+
+        <!-- Bootstrap styles -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="styles/base-styles.css">
+
+        <!-- Get user client type (Desktop or Mobile) -->
+        <script src="scripts/detect_device.ts"></script>
+
+        <!-- Defines some characters like symbols-->
+        <script src="scripts/character_definitions.ts"></script>
+
+        <!-- Functions to check characters -->
+        <script src="scripts/specific-checks.ts"></script>
+
+        <!-- Page details -->
+        <title>Character Inspector</title>
+    </head>
+    <body>
+        <!-- Bootstrap scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap Navbar -->
+        <div id="navbar-container" class="width-full">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">Character Inspector</span>
+                    <!-- TODO
+                    <div id="about-trigger" class="nav-item">
+                        About
+                    </div>
+                    -->
+                </div>
+            </nav>
+        </div>
+
+        <!-- Page main -->
+        <main>
+            <div id="input-container">
+                <div id="input-box" class="card">
+                    <label for="input-text-area" id="text-input-label" class="form-label">Enter Text Here:</label>
+                    <textarea class="form-control" id="input-text-area" rows="5"></textarea>
+                </div>
+            </div>
+        </main>
+
+        <!-- Input Summary Components -->
+        <div id="input-summary-container" class="width-full">
+            <div id="left-half-placeholder" class="width-half">
+                
+                <!-- Character types summary card-->
+                <div class="card summary-card">
+                    <h2 class="card-summary-h2">Character types:</h2>
+
+                    <!-- Table showing text details -->
+                    <table id="text-summary-table">
+                        <!-- Characters (not including '\n')-->
+                        <tr id="characters-row">
+                            <th>Characters:</th>
+                            <td id="characters-display"></td>
+                        </tr>
+                        <!-- All Characters display -->
+                        <tr class="minor-label" id="characters-including-newline-row">
+                            <th class="minor-label">Including Line breaks:</th>
+                            <td id="characters-including-newline-display"></td>
+                        </tr>
+                        <!-- Alphabetical characters display -->
+                        <tr id="alpha-row">
+                            <th>Alphabetical:</th>
+                            <td id="alpha-display"></td>
+                        </tr>
+                        <!-- Uppercase characters display -->
+                        <tr class="minor-label" id="upper-row">
+                            <th class="minor-label">Uppercase:</th>
+                            <td id="upper-display"></td>
+                        </tr>
+                        <!-- Lowercase characters display -->
+                        <tr class="minor-label" id="lower-row">
+                            <th class="minor-label">Lowercase:</th>
+                            <td id="lower-display"></td>
+                        </tr>
+                        <!-- Number characters display -->
+                        <tr id="numeric-row">
+                            <th>Numbers:</th>
+                            <td id="numeric-display"></td>
+                        </tr>
+                        <!-- ASCII Symbols characters display -->
+                        <tr id="ascii-symbols-row">
+                            <th>ASCII Symbols:</th>
+                            <td id="ascii-symbols-display"></td>
+                        </tr>
+                        <!-- ASCII Symbols Punctuation display -->
+                        <tr class="minor-label" id="ascii-punctuation-row">
+                            <th class="minor-label">Punctuation:</th>
+                            <td id="ascii-punctuation-display"></td>
+                        </tr>
+                        <!-- ASCII Symbols Operators display -->
+                        <tr class="minor-label" id="ascii-operators-row">
+                            <th class="minor-label">Operators:</th>
+                            <td id="ascii-operators-display"></td>
+                        </tr>
+                        <!-- ASCII Symbols other display -->
+                        <tr class="minor-label" id="ascii-other-row">
+                            <th class="minor-label">Other:</th>
+                            <td id="ascii-other-display"></td>
+                        </tr>
+                        <!-- Spaces display -->
+                        <tr id="spaces-row">
+                            <th>Spaces:</th>
+                            <td id="spaces-display"></td>
+                        <!-- Line breaks display -->
+                        <tr id="line-breaks-row">
+                            <th>Line Breaks:</th>
+                            <td id="line-breaks-display"></td>
+                        </tr>
+                        <!-- Other Characters display-->
+                        <tr id="other-characters-row" class="warning">
+                            <th>Other Characters:</th>
+                            <td id="other-characters-display"></td>
+                        </tr>                                  
+                    </table>
+                </div>
+
+                <!-- Word Summary Card-->
+                <!-- TODO
+                <div class="card summary-card">
+                    <h2 class="card-summary-h2">Word Summary:</h2>
+
+                    <table id="word-summary-table">
+                        <tr id="word-count-row">
+                            <th>Word Count:</th>
+                            <td id="word-count-display"></td>
+                        </tr>
+                    </table>
+                </div>
+                -->
+        </div>
+
+        <!-- Handle text input into textarea -->
+        <script src="scripts/textarea-handler.js"></script> 
+        <!-- Placed here due to load order -->
+        
+        <!-- Handle word count display -->
+         <script src="scripts/word-count-handler.js"></script>
+    </body>
+</html>
