@@ -7,6 +7,12 @@ const leftHalfPlaceholder = document.getElementById("left-half-placeholder");
 // Get right-half-placeholder
 const rightHalfPlaceholder = document.getElementById("right-half-placeholder");
 
+// Get Summary cards
+const summaryCards = document.querySelectorAll(".summary-card");
+
+// Get Left Summary card
+const leftCard = document.getElementById("individual-summary-card");
+
 let isThin = false;
 
 window.addEventListener("resize", (event) => {
@@ -29,6 +35,12 @@ function changeToThin() {
     rightHalfPlaceholder.classList.remove("width-half");
     leftHalfPlaceholder.classList.add("width-full");
     rightHalfPlaceholder.classList.add("width-full");
+
+    summaryCards.forEach(card => {
+        card.style.marginRight = '10pt';
+    });
+
+    leftCard.style.marginLeft = '10pt';
 }
 
 function restoreToNormal() {
@@ -36,6 +48,13 @@ function restoreToNormal() {
     rightHalfPlaceholder.classList.remove("width-full");
     leftHalfPlaceholder.classList.add("width-half");
     rightHalfPlaceholder.classList.add("width-half");
+
+    summaryCards.forEach(card => {
+        card.style.marginRight = '5pt';
+    });
+
+    leftCard.style.marginLeft = '5pt';
+    leftCard.style.marginRight = '10pt';
 }
 
 checkWindow();
