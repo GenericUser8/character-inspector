@@ -9,6 +9,7 @@
 
         <!-- Stylesheets -->
         <link rel="stylesheet" href="styles/base-styles.css">
+        <link rel="stylesheet" href="styles/char-table-styles.css">
 
         <!-- Get user client type (Desktop or Mobile) -->
         <script src="scripts/detect_device.js"></script>
@@ -146,7 +147,48 @@
                         <tr id="paragraph-count-row">
                             <th>Paragraph Count:</th>
                             <td id="paragraph-count-display"></td>
-                        </tr>                        
+                        </tr>
+                        <!-- Readability -->
+                        <tr id="readability-row">
+                            <th>Readability:</th>
+                            <td id="readability-display"></td>
+                        </tr>
+                        <!-- Readability Raw -->
+                        <tr id="readability-raw-row" class="minor-label">
+                            <th class="minor-label">Raw:</th>
+                            <td id="readability-raw-display"></td>
+                        </tr>
+                        <!-- Readability L -->
+                        <tr id="readability-l-row" class="minor-label">
+                            <th class="minor-label">L:</th>
+                            <td id="readability-l-display"></td>
+                        </tr>
+                        <!-- Readability S -->
+                        <tr id="readability-s-row" class="minor-label">
+                            <th class="minor-label">S:</th>
+                            <td id="readability-s-display"></td>
+                        </tr>                                                         
+                    </table>
+                </div>
+            </div>
+
+            <!-- Start of Characters Display -->
+            <div id="right-half-placeholder" class="width-half">
+                <div class="card summary-card" id="individual-summary-card">
+                    <h2 class="card-summary-h2">Characters:</h2>
+                    
+                    <!-- Character List table -->
+                    <table id="individual-character-table">
+
+                        <!-- Table Headings-->
+                        <thead>
+                            <th class="char-table-head char-table-id">#</th>
+                            <th class="char-table-head char-table-char">Char</th>
+                            <th class="char-table-head char-table-unicode">Unicode</th>
+                            <th class="char-table-head char-table-type">Type</th>
+                        </thead>
+
+                        <tbody id="individual-character-table-body"></tbody>
                     </table>
                 </div>
             </div>
@@ -157,6 +199,9 @@
         <!-- Placed here due to load order -->
         
         <!-- Handle word count display -->
-         <script src="scripts/word-count-handler.js"></script>
+        <script src="scripts/word-count-handler.js"></script>
+
+        <!-- Handles individual character display-->
+        <script src="scripts/character-parser.js"></script>
     </body>
 </html>

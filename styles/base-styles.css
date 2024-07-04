@@ -39,8 +39,23 @@ th {
     padding: 5pt;
 }
 
+#right-half-placeholder {
+    float: right;
+}
+
+#left-half-placeholder {
+    float: left;
+}
+
 .summary-card {
-    margin: 10pt;
     padding: 5pt;
+    margin-bottom: 10pt;
+    margin-left: 10pt;
+    margin-right: 5pt;
     background-color: #EFEFEF;
+}
+
+#individual-summary-card {
+    margin-left: 5pt;
+    margin-right: 10pt;
 }

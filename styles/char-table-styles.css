@@ -1,0 +1,24 @@
+.char-table-head {
+    text-align: center;
+}
+
+#individual-character-table-body {
+    text-align: center;
+}
+
+.char-table-id {
+    min-width: min-content;
+    width: 15%;
+}
+
+.char-table-char {
+    min-width: min-content;
+    width: 15%;
+}
+
+.char-table-unicode {
+    min-width: min-content;
+    width: 20%;
+}
+
+/* Character type specific */

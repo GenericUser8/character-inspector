@@ -103,6 +103,10 @@ textAreaObject.addEventListener('input', async function() {
 
         // Wordcount Component
         countWords();
+        calculateReadability();
+
+        // Individual Char inspector
+        updateCharTableContents()
     } else {
         inputSummaryContainer.setAttribute("hidden","");
     }
