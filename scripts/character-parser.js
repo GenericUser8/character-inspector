@@ -2,6 +2,10 @@
 const charTableBody = document.getElementById("individual-character-table-body");
 let tableBody = "";
 
+// Find ranking table body object
+const charCountTableBody = document.getElementById("character-count-table-body");
+let rankingList = [];
+
 // Character Types and corresponding row classes
 const charTypeClassDict = {
     "Alphabetic (Lower)":"char-table-alpha-lower",
@@ -17,21 +21,63 @@ const charTypeClassDict = {
 
 function updateCharTableContents() {
     tableBody="";
+    rankingList=[];
     for (let i = 0; i < textLength; i++) {
         let c = textInput.charAt(i);
-        let charType = findCharType(c)
+
+        // Checks if the character already exists in rankingList
+        let found = false;
+        let j = 0;
+        for(j = 0; j < rankingList.length; j++) {
+            if (rankingList[j].char == c) {
+                found = true;
+                break;
+            }
+        }
+        if (found == true) {
+            rankingList[j].count += 1;
+        } else {
+            rankingList.push({
+                char: c,
+                count: 1
+            });
+        }
+
+        // Populates all chars table
+        let charType = findCharType(c);
         tableBody = tableBody + (
             "<tr class=\"" + charTypeClassDict[charType] + "\">" +
                 "<td class=\"char-table-id\">" + i + "</td>" + 
                 "<td class=\"char-table-char\">" + showChar(c) + "</td>" +
                 "<td class=\"char-table-unicode\">" + textInput.charCodeAt(i) + "</td>" +
-                "<td>" + charType + "</td>" + 
+                "<td class=\"char-table-type\">" + charType + "</td>" + 
+            "</tr>"
+        );
+    }
+
+    // Sorts occurances table by most common
+    // Adapted from https://www.geeksforgeeks.org/sort-array-of-objects-by-single-key-with-date-value-in-javascript/
+    rankingList.sort((a, b) => b.count - a.count);
+
+    // Populates Occurences Table
+    let charType = "";
+    let rankingTableBody = "";
+    for (let i = 0; i < rankingList.length; i++) {
+        let charType = findCharType(rankingList[i].char);
+        rankingTableBody = rankingTableBody + (
+            "<tr class=\"" + charTypeClassDict[charType] + "\">" + 
+                "<td class=\"char-count-table-rank\">" + (i + 1) + "</td>" +
+                "<td class=\"char-count-table-char\">" + showChar(rankingList[i].char) + "</td>" +
+                "<td class=\"char-count-table-unicode\">" + rankingList[i].char.charCodeAt(0) + "</td>" + 
+                "<td class=\"char-count-table-type\">" + charType + "</td>" +
+                "<td class=\"char-count-table-count\">" + rankingList[i].count + "</td>" +
             "</tr>"
         );
     }
 
     // Updates Table
     charTableBody.innerHTML = tableBody;
+    charCountTableBody.innerHTML = rankingTableBody;
 }
 
 function findCharType(c) {

@@ -1,4 +1,9 @@
+/* Character Table Styles */
 .char-table-head {
+    text-align: center;
+}
+
+.char-count-table-head {
     text-align: center;
 }
 
@@ -6,6 +11,11 @@
     text-align: center;
 }
 
+#character-count-table-body {
+    text-align: center;
+}
+
+/* All Chars table custom widths */
 .char-table-id {
     min-width: min-content;
     width: 15%;
@@ -21,4 +31,61 @@
     width: 20%;
 }
 
+/* Occurences table custom widths */
+/* All Chars table custom widths */
+.char-count-table-rank {
+    min-width: min-content;
+    width: 15%;
+}
+
+.char-count-table-char {
+    min-width: min-content;
+    width: 15%;
+}
+
+.char-count-table-unicode {
+    min-width: min-content;
+    width: 20%;
+}
+
+.char-count-table-count {
+    min-width: min-content;
+    width: 10%;
+}
+
 /* Character type specific */
+.char-table-alpha-lower {
+    background-color: lightcyan;
+}
+.char-table-alpha-upper {
+    background-color: lightblue;
+}
+
+.char-table-num {
+    background-color: lightgreen;
+}
+
+.char-table-punctuation {
+    background-color: lightgoldenrodyellow;
+}
+
+.char-table-operator {
+    background-color: lightsalmon;
+}
+
+.char-table-other-symbol {
+    background-color: lightseagreen;
+}
+
+.char-table-whitespace {
+    background-color: white;
+}
+
+.char-table-newline {
+    background-color: whitesmoke;
+}
+
+.char-table-unknown {
+    background-color: red;
+    color: white;
+}
