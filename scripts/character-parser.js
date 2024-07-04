@@ -17,7 +17,13 @@ const charTypeClassDict = {
     "Whitespace":"char-table-whitespace",
     "New Line":"char-table-newline",
     "Unknown":"char-table-unknown"
-}
+};
+
+// Replacing some characters that aren't visible
+const charReplaceDict = {
+    ' ':"\' \'",
+    '\u{A}':"\\n"
+};
 
 function updateCharTableContents() {
     tableBody="";
@@ -104,5 +110,10 @@ function findCharType(c) {
 
 // TODO: Some characters do not print properly.
 function showChar(c) {
-    return c;
+    let returnStr = charReplaceDict[c];
+    if (returnStr == undefined) {
+        return c;
+    } else {
+        return returnStr;
+    }
 }
