@@ -46,7 +46,7 @@ function countWords() {
         c = textInput.charAt(i);
         n = textInput.charAt(i + 1);
 
-        if (c == ' ' && isAlpha(n)) {
+        if ((c == ' ' || c == '\n') && isAlpha(n)) {
             wordCount++;
         }
         if (sentenceEnds.includes(c) && (n == ' ' || n == '\n')) {

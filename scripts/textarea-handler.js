@@ -85,7 +85,7 @@ const otherCharactersCountRow = document.getElementById("other-characters-row");
 otherCharactersCountRow.setAttribute("hidden","");
 let otherCharactersCount = 0;
 
-textAreaObject.addEventListener('input', async function() {
+textAreaObject.addEventListener('input', function() {
     textInput = textAreaObject.value;
     textLength = textInput.length
     if (textLength > 0) {
